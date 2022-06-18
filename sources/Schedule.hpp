@@ -11,18 +11,19 @@
 
 namespace ex6 {
     class Schedule {
+    public:
         list<Round> rounds_sorted;
-
-        ~Schedule() {};
 
         list<Round>::iterator begin();
 
         list<Round>::iterator end();
 
-    public:
+
         void update(vector<Team *> roster);
 
         Schedule() {}
+        ~Schedule() {};
+
     };
 }
 

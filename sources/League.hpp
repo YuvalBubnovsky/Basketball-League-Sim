@@ -5,15 +5,16 @@
 #ifndef BASKETBALL_LEAGUE_SIM_LEAGUE_HPP
 #define BASKETBALL_LEAGUE_SIM_LEAGUE_HPP
 
-#include "Team.hpp"
 #include "Schedule.hpp"
+#include "Team.hpp"
 #include <vector>
 
 namespace ex6 {
+    class Schedule;
     class League {
     public:
         vector<Team *> _roster;
-        Schedule _schedule;
+        Schedule* _schedule;
         const int ROSTER_SIZE = 20;
 
         League();

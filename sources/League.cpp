@@ -37,14 +37,16 @@ League::League() {
     for (size_t i = 0; i < this->ROSTER_SIZE; i++) {
         this->getRoster().at(i) = pre_generated_roster.at(i);
     }
-    _schedule.update(this->getRoster());
+    this->_schedule = new Schedule();
+    _schedule->update(this->getRoster());
 }
 
 League::League(vector<Team *> roster) {
     this->getRoster().resize(this->ROSTER_SIZE);
     if (roster.size() == this->ROSTER_SIZE) {
         this->getRoster() = std::move(roster);
-        _schedule.update(this->getRoster());
+        this->_schedule = new Schedule();
+        _schedule->update(this->getRoster());
     } else {
         throw std::invalid_argument("Invalid roster size, must be 20");
     }
@@ -66,6 +68,7 @@ League &League::operator=(const League &other) {
 }
 
 League::~League() {
+    delete this->_schedule;
     for (auto &i: this->_roster) {
         delete i;
     }
@@ -104,14 +107,14 @@ void League::printRoster() const {
 }
 
 void League::run_league() {
-    for (Round &round: this->_schedule) {
+    for (Round &round: *this->_schedule) {
         for (Game &game: round) {
             game.play_game();
         }
     }
 }
 void League::printSchedule() {
-    for (Round &round: this->_schedule) {
+    for (Round &round: *this->_schedule) {
         for (Game &game: round) {
             cout << game.get_home_team()->getName() << " vs " << game.get_away_team()->getName() << endl;
         }
