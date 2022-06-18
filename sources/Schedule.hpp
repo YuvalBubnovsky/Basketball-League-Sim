@@ -19,7 +19,7 @@ namespace ex6 {
         list<Round>::iterator end();
 
 
-        void update(vector<Team *> roster);
+        void update(vector<Team *> &roster);
 
         Schedule() {}
         ~Schedule() {};

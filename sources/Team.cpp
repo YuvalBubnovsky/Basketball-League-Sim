@@ -32,19 +32,19 @@ bool Team::operator==(const Team &other) const {
     return equal;
 }
 
-int Team::getWins() {
+int Team::getWins() const {
     return this->_wins;
 }
 
-int Team::getLosses() {
+int Team::getLosses() const {
     return this->_losses;
 }
 
-int Team::getPointsFor() {
+int Team::getPointsFor() const {
     return this->_points_for;
 }
 
-int Team::getPointsAgainst() {
+int Team::getPointsAgainst() const {
     return this->_points_against;
 }
 

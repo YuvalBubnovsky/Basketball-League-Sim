@@ -35,10 +35,17 @@ namespace ex6 {
 
         void printRoster() const;
 
-        void printSchedule();
+        void printSchedule() const;
 
-        void run_league();
+        void run_league() const;
 
+        void printStandings() const;
+
+        bool comapre_by_wins(Team *team1, Team *team2);
+
+        void printByPointRanking() const;
+
+        int teams_positive_score_ratio() const;
     };
 }
 

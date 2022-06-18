@@ -10,19 +10,19 @@
 namespace ex6 {
     class Game {
     private:
-        int homeTeamScore;
-        int awayTeamScore;
+        int homeTeamScore{};
+        int awayTeamScore{};
     public:
         Team *homeTeam;
         Team *awayTeam;
 
         Game(Team &homeTeam, Team &awayTeam);
 
-        ~Game();
+        ~Game() = default;
 
         void play_game();
 
-        Team *get_winner();
+        Team *get_winner() const;
 
         Team *get_home_team() const;
 

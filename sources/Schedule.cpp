@@ -11,7 +11,7 @@ using namespace ex6;
 
 constexpr int ROSTER_SIZE = 20;
 
-list<Round> round_robin_algo(vector<Team *> roster) {
+list<Round> round_robin_algo(vector<Team *> &roster) {
     /*
     * round-robin algorithm to scheduale the league, wikipedia page:
     * https://en.wikipedia.org/wiki/Round-robin_tournament#Scheduling_algorithm
@@ -45,8 +45,8 @@ list<Round> round_robin_algo(vector<Team *> roster) {
 
 }
 
-void Schedule::update(vector<Team *> roster) {
-    round_robin_algo(std::move(roster));
+void Schedule::update(vector<Team *> &roster) {
+    this->rounds_sorted = round_robin_algo(roster);
 }
 
 list<Round>::iterator Schedule::begin() {

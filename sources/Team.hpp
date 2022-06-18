@@ -36,13 +36,13 @@ namespace ex6 {
 
         bool operator==(const Team &other) const;
 
-        int getWins();
+        int getWins() const;
 
-        int getLosses();
+        int getLosses() const;
 
-        int getPointsFor();
+        int getPointsFor() const;
 
-        int getPointsAgainst();
+        int getPointsAgainst() const;
 
         void setWins(int wins);
 
