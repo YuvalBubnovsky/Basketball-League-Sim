@@ -91,8 +91,8 @@ void League::addTeam(Team &team) const {
 }
 
 void League::removeTeam(Team &team) const {
-    for (size_t i = 0; i < this->getRoster().size(); i++) {
-        if (this->getRoster().at(i) == &team) {
+    for (long i = 0; i < this->getRoster().size(); i++) {
+        if (this->getRoster().at(static_cast<size_t>(i)) == &team) {
             this->getRoster().erase(this->getRoster().begin() + i);
             return;
         }

@@ -9,7 +9,7 @@
 
 using namespace ex6;
 
-constexpr int ROSTER_SIZE = 20;
+constexpr size_t ROSTER_SIZE = 20;
 
 list<Round> round_robin_algo(vector<Team *> &roster) {
     /*
@@ -19,21 +19,21 @@ list<Round> round_robin_algo(vector<Team *> &roster) {
     */
 
     list<Round> result_rounds_to_return;
-    vector<int> ordered_roster_per_round(ROSTER_SIZE);
-    for (int num = 0; num < ROSTER_SIZE; num++) {
+    vector<size_t> ordered_roster_per_round(ROSTER_SIZE);
+    for (size_t num = 0; num < ROSTER_SIZE; num++) {
         ordered_roster_per_round.at(num) = num;
     }
 
-    for (int i = 0; i < ROSTER_SIZE - 1; i++) {
+    for (size_t i = 0; i < ROSTER_SIZE - 1; i++) {
         Round round;
-        for (int j = 0; j < ROSTER_SIZE / 2; j++) {
+        for (size_t j = 0; j < ROSTER_SIZE / 2; j++) {
             round.game_list.emplace_back(*(roster.at(ordered_roster_per_round.at(j))),
                                          *(roster.at(ordered_roster_per_round.at(ROSTER_SIZE - 1 - j))));
             round.game_list.emplace_back(*(roster.at(ordered_roster_per_round.at(ROSTER_SIZE - 1 - j))),
                                          *(roster.at(ordered_roster_per_round.at(j))));
         }
 
-        int last = ordered_roster_per_round.at(ordered_roster_per_round.size() - 1);
+        size_t last = ordered_roster_per_round.at(ordered_roster_per_round.size() - 1);
         for (size_t j = ordered_roster_per_round.size() - 1; j >= 2; j--) {
             ordered_roster_per_round.at(j) = ordered_roster_per_round.at(j - 1);
         }

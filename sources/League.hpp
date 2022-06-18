@@ -15,7 +15,7 @@ namespace ex6 {
     public:
         vector<Team *> _roster;
         Schedule* _schedule;
-        const int ROSTER_SIZE = 20;
+        const size_t ROSTER_SIZE = 20;
 
         League();
 
