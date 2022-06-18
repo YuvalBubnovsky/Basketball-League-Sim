@@ -22,6 +22,7 @@ namespace ex6 {
         League& operator=(const League &other);
         ~League();
 
+        vector<Team*> getRoster() const;
         void addTeam(Team& team);
         void removeTeam(Team& team);
         void printRoster();
