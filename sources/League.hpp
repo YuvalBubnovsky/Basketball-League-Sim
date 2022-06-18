@@ -12,21 +12,31 @@
 namespace ex6 {
     class League {
     public:
-        vector<Team*> _roster;
-        Schedule _schedule{};
+        vector<Team *> _roster;
+        Schedule _schedule;
         const int ROSTER_SIZE = 20;
 
         League();
-        League(vector<Team*> roster);
+
+        League(vector<Team *> roster);
+
         League(const League &other);
-        League& operator=(const League &other);
+
+        League &operator=(const League &other);
+
         ~League();
 
-        vector<Team*> getRoster() const;
-        void addTeam(Team& team);
-        void removeTeam(Team& team);
-        void printRoster();
+        vector<Team *> getRoster() const;
+
+        void addTeam(Team &team) const;
+
+        void removeTeam(Team &team) const;
+
+        void printRoster() const;
+
         void printSchedule();
+
+        void run_league();
 
     };
 }
